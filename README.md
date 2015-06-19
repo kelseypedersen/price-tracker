@@ -2,9 +2,9 @@
 DBC Final Project June 2015
 
 Team Members
-- Jacob Boyle
+- Jacob Moyle
 - Kelsey Pedersen
-- Dani Riggs
+- Dani Rigsby
 - Mary Wallace
 
 ## Day 1
