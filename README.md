@@ -1,4 +1,4 @@
-# price-tracker
+# Price Tracker
 DBC Final Project June 2015
 
 ## Day 1
