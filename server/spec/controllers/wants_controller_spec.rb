@@ -1,13 +1,13 @@
 require 'spec_helper'
 
+describe 'WantsController' do
 
-describe WantsController do
-
-  # describe "GET index" do
-  #   it "has a 200 status code" do
-  #     get :index
-  #     expect(response.status).to eq(200)
-  #   end
+  describe "GET index" do
+    it "has a 200 status code" do
+      get :index, :user_id => 1
+      expect(response.status).to eq(200)
+    end
+  end
 
   #   it "has a success status code" do
   #     get :index

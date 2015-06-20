@@ -1,44 +1,22 @@
 require 'spec_helper'
 
-describe ProductsController do
+describe 'UsersController' do
 
   # describe "GET index" do
   #   it "has a 200 status code" do
-  #     get :index
+  #     get :index, :id => 1
   #     expect(response.status).to eq(200)
   #   end
   # end
 
-
-  # describe "GET show " do
+  # describe "GET show" do
   #   it "has a 200 status code" do
   #     get :show
   #     expect(response.status).to eq(200)
   #   end
-
-  #   let(:product) { create(:product) }
-
-  #   it "returns a successful 200 response" do
-  #     get :product, id: product, format: :json
-  #     expect(response).to be_success
-  #   end
-
-  #   it "returns data of an single product" do
-  #     get :product, id: product, format: :json
-  #     parsed_response = JSON.parse(response.body)
-  #     expect(parsed_response['product']).to_not be_nil
-  #   end
-
-  #   it "returns an error if the student does not exist" do
-  #     get :product, id: 10 , format: :json
-  #     parsed_response = JSON.parse(response.body)
-  #     expect(parsed_response['error']).to eq("Product does not exist")
-  #     expect(response).to be_not_found
-  #   end
   # end
 
-
-  # describe "GET new" do
+   # describe "GET new" do
   #   it "has a 200 status code" do
   #     get :new
   #     expect(response.status).to eq(200)
@@ -66,12 +44,13 @@ describe ProductsController do
   #   end
   # end
 
-  # describe "DELETE destroy" do
+  # describe "DELETE destory" do
   #   it "has a 200 status code" do
   #     get :destroy
   #     expect(response.status).to eq(200)
   #   end
   # end
+
 
 
 end
