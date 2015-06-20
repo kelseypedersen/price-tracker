@@ -1,8 +1,7 @@
 require 'spec_helper'
 
-require 'spec_helper'
 
-describe WishedProductsController do
+describe WantsController do
 
   # describe "GET index" do
   #   it "has a 200 status code" do

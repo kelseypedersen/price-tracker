@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150619221831) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "wishlists", force: :cascade do |t|
+  create_table "wants", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "product_id"
     t.integer  "max_price"

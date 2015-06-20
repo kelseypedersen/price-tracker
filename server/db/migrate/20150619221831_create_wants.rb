@@ -1,6 +1,6 @@
-class CreateWishlists < ActiveRecord::Migration
+class CreateWants < ActiveRecord::Migration
   def change
-    create_table :wishlists do |t|
+    create_table :wants do |t|
 
       t.references :user
       t.references :product
