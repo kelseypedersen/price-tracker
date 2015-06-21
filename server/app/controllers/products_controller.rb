@@ -10,12 +10,24 @@ class ProductsController < ApplicationController
     response = client.search(params[:search])
     # Search needs to be a parameter that is passed in from the user.
     raw_products = JSON.parse(response)["products"]
+
     @id = []
+    
     @products = raw_products.map do |product|
       @id << product.values[0]
       # This gives us all of the id's of the products returned by the search
     end
     # render json: @id
+  end
+
+  #renamed from search to results: showing the results from shopstyle API
+  #create custom route for search 
+  #specific product 
+  #relates to form in html 
+  
+
+  def results
+    @products = Product.search(params[:search])
   end
 
   def show
@@ -43,11 +55,6 @@ class ProductsController < ApplicationController
 
   def product_find
     @product = Product.find(params[:id])
-  end
-
-  def search
-    @products = Product.search(params[:search])
-
   end
 
 end
