@@ -6,7 +6,8 @@ class Product < ActiveRecord::Base
     if search
       find(:all, :conditions => ["name LIKE ?", "%#{search}%"])
     else
-      find(:all)
+      # find(:all)
+      "Search not found"
     end
   end
 
