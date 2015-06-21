@@ -1,9 +1,14 @@
+require 'shopsense'
+
 class ProductsController < ApplicationController
 
   before_action :product_find, only: [:show, :edit, :destroy]
 
   def index
-    @products = Product.all
+    @products = []
+    client = Shopsense::API.new('partner_id' => 'uid5001-30368749-95')
+    response = client.search("women")
+    @products = JSON.parse(response)["products"]
     render json: @products
   end
 

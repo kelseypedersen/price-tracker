@@ -111,6 +111,8 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    shopsense-ruby (0.1.2)
+      yajl-ruby
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
     simplecov (0.10.0)
@@ -129,6 +131,7 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    yajl-ruby (1.2.1)
 
 PLATFORMS
   ruby
@@ -141,6 +144,7 @@ DEPENDENCIES
   rails (= 4.2.1)
   rails-api
   rspec-rails
+  shopsense-ruby
   shoulda-matchers
   simplecov
   spring
