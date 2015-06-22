@@ -10,8 +10,7 @@ var submitSearch = function(){
     url:"http://localhost:3000/products/results",
     data: $(this).serialize(), 
     crossDomain: true,
-    type:"GET",
-    // dataType: 'json'
+    type:"GET"
    });
 
    request.done(function(data){
