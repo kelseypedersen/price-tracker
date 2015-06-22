@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20150622154224) do
     t.string   "name"
     t.string   "password"
     t.string   "email"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "facebook_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "facebook_id", limit: 8
   end
 
   create_table "wants", force: :cascade do |t|
