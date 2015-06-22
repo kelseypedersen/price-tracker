@@ -11,6 +11,20 @@ var hardLanding = function(){
 
   $('a').remove();
   $(".search-product-form").css("display", "block");
+
+  var request = $.ajax({
+    url:"http://localhost:3000/products/newest_products",
+    crossDomain: true,
+    type:"GET"
+   });
+
+    request.done(function(data){
+      var products = data["products"]
+
+      for(i = 0; i < products.length; i++){ 
+        $(".search-results").prepend("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+      };
+    });
   });
 };
 
