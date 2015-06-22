@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   before_action :user_find, only: [:show, :edit, :destroy, :update]
 
   def new
-    p '********************'
-    p params[:user][:oauth_id].to_i
     @user = User.new
   end
 
@@ -13,7 +11,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(id: params[:id], name: params[:name], password: params[:password], email: params[:email])
+    @user = User.new(name: params[:user][:oauth_name], facebook_id: params[:user][:oauth_id])
+    p @user
     if @user.save
       render json: { user: @user }, status: :created
     else
