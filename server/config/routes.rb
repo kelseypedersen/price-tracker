@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+root 'products#index'
+
+get 'products/results'
+
+
   resources :users do
     resources :wants
   end
