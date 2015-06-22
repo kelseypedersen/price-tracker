@@ -12,6 +12,7 @@ gem 'simplecov', :require => false, :group => :test
 
 gem 'shopsense-ruby'
 
+gem 'httparty'
 
 group :development, :test do
   gem 'spring'

@@ -7,10 +7,10 @@ class ProductsController < ApplicationController
   end
 
   #renamed from search to results: showing the results from shopstyle API
-  #create custom route for search 
-  #specific product 
-  #relates to form in html 
-  
+  #create custom route for search
+  #specific product
+  #relates to form in html
+
   def results
     raw_input = params[:search].to_s
     formatted_input = raw_input.gsub(" ", "+")
@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 
     render json: @client
   end
-  
+
   def show
     render json: {product: @product}
   end
@@ -43,9 +43,9 @@ class ProductsController < ApplicationController
 
   def newest_products
     @newest_products = HTTParty.get("http://api.shopstyle.com/api/v2/products?pid=uid5001-30368749-95&fts&limit=16")
-
+    p @newest_products
     render json: @newest_products
-  end 
+  end
 
 
   private
@@ -55,5 +55,3 @@ class ProductsController < ApplicationController
   end
 
 end
-
-
