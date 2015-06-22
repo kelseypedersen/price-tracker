@@ -11,11 +11,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(id: params[:id], name: params[:name], password: params[:password], email: params[:email])
-    if @user.save
-      render json: { user: @user }, status: :created
+    # email and password for user no longer needed
+    @user = User.find_by(facebook_id: params[:user][:oauth_id])
+    if @user
+      # Error handling needed. But YOLO.
     else
-      render json: @user.errors.full_messages, status: :unprocessable_entity
+      @user = User.new(name: params[:user][:oauth_name], facebook_id: params[:user][:oauth_id])
+      if @user.save
+        # render json: { user: @user }, status: :created
+      else
+        # render json: @user.errors.full_messages, status: :unprocessable_entity
+      end
     end
   end
 
