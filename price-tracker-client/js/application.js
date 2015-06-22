@@ -22,7 +22,7 @@ var hardLanding = function(){
       var products = data["products"]
 
       for(i = 0; i < products.length; i++){ 
-        $(".search-results").prepend("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+        $(".softLanding").append("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
       };
     });
   });
@@ -43,7 +43,7 @@ var submitSearch = function(){
    request.done(function(data){
     debugger
     console.log("successssssss");
-
+    $(".softLanding").remove();
     var products = data["products"]
 
 
