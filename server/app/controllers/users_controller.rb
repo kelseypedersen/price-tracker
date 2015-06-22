@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :user_find, only: [:show, :edit, :destroy, :update]
 
   def new
+    p '********************'
+    p params[:user][:oauth_id].to_i
     @user = User.new
   end
 
