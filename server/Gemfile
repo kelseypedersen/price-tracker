@@ -12,7 +12,6 @@ gem 'simplecov', :require => false, :group => :test
 
 gem 'shopsense-ruby'
 
-
 group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
