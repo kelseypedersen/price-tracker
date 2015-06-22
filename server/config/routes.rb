@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 root 'products#index'
 
 get 'products/results'
-
+get 'products/newest_products'
 
   resources :users do
     resources :wants

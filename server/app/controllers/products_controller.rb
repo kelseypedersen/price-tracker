@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   def results
     raw_input = params[:search].to_s
     formatted_input = raw_input.gsub(" ", "+")
-    
+
     @client = HTTParty.get("http://api.shopstyle.com/api/v2/products?pid=uid5001-30368749-95&fts='#{formatted_input}'&offset=0&limit=20")
 
     render json: @client
@@ -40,6 +40,13 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
   end
+
+  def newest_products
+    @newest_products = HTTParty.get("http://api.shopstyle.com/api/v2/products?pid=uid5001-30368749-95&fts&limit=16")
+
+    render json: @newest_products
+  end 
+
 
   private
 

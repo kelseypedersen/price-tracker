@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150619221831) do
+=======
+ActiveRecord::Schema.define(version: 20150622154224) do
+>>>>>>> 4cc66655115d2ab34d28cf04ae464ac22df91770
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +30,9 @@ ActiveRecord::Schema.define(version: 20150619221831) do
     t.string   "name"
     t.string   "password"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "facebook_id", limit: 8
   end
 
   create_table "wants", force: :cascade do |t|
