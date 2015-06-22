@@ -7,16 +7,22 @@ var submitSearch = function(){
     event.preventDefault();
 
    var request = $.ajax({
-    url:"http://localhost:3000/products/results", 
+    url:"http://localhost:3000/products/results",
+    data: $(this).serialize(), 
     crossDomain: true,
-    type:"GET"
+    type:"GET",
+    // dataType: 'json'
    });
 
    request.done(function(data){
+    debugger
+    console.log(data);
     console.log("successssssss");
     $("#product-search").hide();
+    $(".search-results")
    });
    request.fail(function(data){
+    debugger
     console.log("fail");
    });
   });
