@@ -9,18 +9,23 @@
   <script src="js/application.js"></script>
 </head>
 <body>
-  <header>
-    <h1>TEAM AWESOME</h1>
+  <header id="welcomeForm">
+
   </header>
 
-  <div class="search-product-form">
+  <div class="hardLanding">
+    <a href="submit">Submit</a>
+  </div>
+
+  <div class="search-product-form" style="display:none;">
+    <h1>Price Tracker</h1>
     <form id="product-search" action="http://localhost:3000/products/results" method= "GET">
       <input type="text" name="search"/>
       <input type="submit" value="Search" name="search" />
     </form>
   </div>
   <div class="search-results">
-    
+
   </div>
 
 

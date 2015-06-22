@@ -12,13 +12,9 @@ class ProductsController < ApplicationController
   #relates to form in html 
   
   def results
-    p "*" * 100
-    p params[:search]
-    p "*" * 100
     raw_input = params[:search].to_s
     formatted_input = raw_input.gsub(" ", "+")
-    p "*" * 100
-    p formatted_input
+    
     @client = HTTParty.get("http://api.shopstyle.com/api/v2/products?pid=uid5001-30368749-95&fts='#{formatted_input}'&offset=0&limit=20")
 
     render json: @client

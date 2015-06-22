@@ -1,6 +1,19 @@
 $(document).ready(function(){
-  submitSearch();
+  hardLanding();
+  submitSearch()
 }); 
+
+
+
+var hardLanding = function(){
+  $('a').on('click', function(event){
+    event.preventDefault();
+
+  $('a').remove();
+  $(".search-product-form").css("display", "block");
+  });
+};
+
 
 var submitSearch = function(){
   $("#product-search").on('submit', function(event){
@@ -14,11 +27,18 @@ var submitSearch = function(){
    });
 
    request.done(function(data){
-    console.log(data);
+    debugger
     console.log("successssssss");
-    $("#product-search").hide();
-    $(".search-results").prepend(data);
+
+    var products = data["products"]
+
+
+    for(i = 0; i < products.length; i++){
+      $(".search-results").prepend("<div class='product'><a href='" + products[i].clickUrl + "'>" + "<img src='" + products[i].image.sizes.IPhoneSmall.url + "' alt='product Image'>" + "</a></div>")
+    };
+
    });
+
    request.fail(function(data){
     console.log("fail");
    });
