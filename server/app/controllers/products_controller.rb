@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
 
-  before_action :product_find, only: [:show, :edit, :destroy]
 
   def index
     render json: @products
@@ -21,7 +20,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    render json: {product: @product}
+    @client = HTTParty.get("http://api.shopstyle.com/api/v2/products/#{params[:id].to_i}?pid=uid5001-30368749-95")
+    render json: @client
   end
 
   def new
@@ -50,8 +50,8 @@ class ProductsController < ApplicationController
 
   private
 
-  def product_find
-    @product = Product.find(params[:id])
-  end
+
 
 end
+
+# http://api.shopstyle.com/api/v2/products/359131344?pid=YOUR_API_KEY
