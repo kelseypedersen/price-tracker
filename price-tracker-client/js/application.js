@@ -14,14 +14,12 @@ var submitSearch = function(){
    });
 
    request.done(function(data){
-    debugger
     console.log(data);
     console.log("successssssss");
     $("#product-search").hide();
-    $(".search-results")
+    $(".search-results").prepend(data);
    });
    request.fail(function(data){
-    debugger
     console.log("fail");
    });
   });
