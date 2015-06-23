@@ -1,6 +1,8 @@
 task :check_shopstyle => :environment do
-  include Shopstyle
-  Shopstyle.checking
+  # include Shopstyle
+
+  Want.checking
+  # Shopstyle.notification
   # puts "done."
 end
 
