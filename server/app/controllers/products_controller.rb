@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+# API search
+# http://api.shopstyle.com/api/v2/products/THING_TO_SEARCH?pid=YOUR_API_KEY
 
   def index
     render json: @products
@@ -47,11 +49,7 @@ class ProductsController < ApplicationController
     render json: @newest_products
   end
 
-
   private
-
-
 
 end
 
-# http://api.shopstyle.com/api/v2/products/359131344?pid=YOUR_API_KEY
