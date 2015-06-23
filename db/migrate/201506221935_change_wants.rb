@@ -1,6 +1,7 @@
 class ChangeWants < ActiveRecord::Migration
   def change
-    add_column :wants, :notified?, :boolean, :default => false
-    change_column :wants, :fulfilled, :default => false
+    add_column :wants, :notified, :boolean
+    change_column_default :wants, :notified, false
+    change_column_default :wants, :fulfilled, false
   end
 end
