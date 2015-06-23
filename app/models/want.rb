@@ -66,6 +66,6 @@ class Want < ActiveRecord::Base
       end
   end
 
-
+end
 
 end
