@@ -14,6 +14,8 @@ gem 'shopsense-ruby'
 
 gem 'httparty'
 
+gem 'dotenv'
+
 gem 'apns'
 
 group :development, :test do
