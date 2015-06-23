@@ -14,6 +14,8 @@ gem 'shopsense-ruby'
 
 gem 'httparty'
 
+gem 'apns'
+
 group :development, :test do
   gem 'spring'
   gem 'rspec-rails'

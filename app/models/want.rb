@@ -20,16 +20,21 @@ class Want < ActiveRecord::Base
         p "BUY BUY BUY"
         want.fulfilled = true
         p "Fulfilled by checking method"
+      # Do we want logic here for the price going back higher again?
+      elsif (currentShopstylePrice.to_i > want.max_price)
+        p "Switched from BUY to do NOT buy!"
+        want.fulfilled = false
+        p "No longer fulfilled"
       else
         p "were working on it"
       end
-
 
       p "Product id: " + want.product_id.to_s
       p "Max price: " + want.max_price.to_s
       p "Fulfilled: " + want.fulfilled.to_s
       p "*" * 100
     end
+  end
 
   # Checking the shopstyle API
 
@@ -40,11 +45,27 @@ class Want < ActiveRecord::Base
   # If the current Shopstyle price is less than the max_price for the want
   # then update the want below_max to true
 
+########################################
+
+  # Loop through the list of wants
+  # If the below_max is true && notified is false
+  # then send push notification to the user
 
 
   def notifications
+    wants = Want.all
+    wants.each do |want|
+      if (fulfilled == true) && (notified == false)
 
+        # device_token = '123abc456def'
+
+        # APNS.send_notification(device_token, :alert => 'Hello iPhone!', :badge => 1, :sound => 'default')
+
+
+        notified = true
+      end
   end
 
-  end
+
+
 end
