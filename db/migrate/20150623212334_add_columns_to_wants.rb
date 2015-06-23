@@ -1,4 +1,4 @@
-class ChangeWants < ActiveRecord::Migration
+class AddColumnsToWants < ActiveRecord::Migration
   def change
     add_column :wants, :notified, :boolean
     change_column_default :wants, :notified, false
