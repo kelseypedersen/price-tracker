@@ -1,11 +1,11 @@
-module Shopstyle
-  def checking
-    # puts "Checking shopstyle....!!!!!!"
+# module Shopstyle
+#   def checking
+#     # puts "Checking shopstyle....!!!!!!"
 
-  end
+#   end
 
-  def notification
-  end
+#   def notification
+#   end
 
 # Checking the shopstyle API
 
@@ -22,4 +22,4 @@ module Shopstyle
   # If the below_max is true && notified is false
   # then send push notification to the user
 
-end
+# end
