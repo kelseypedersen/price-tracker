@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150624033357) do
     t.integer  "max_price"
     t.date     "expiration"
     t.boolean  "fulfilled",    default: false
+    t.string   "prod_name"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.boolean  "notified",     default: false
