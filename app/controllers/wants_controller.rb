@@ -14,14 +14,12 @@ class WantsController < ApplicationController
   end
 
   def create
-    p "*" * 100
-    p params
-    # @want = Want.new(user_id: params[:user_id].to_i, product_id: params[:id], max_price: params[:max_price], fulfilled: false)
-    # if @want.save
-    #   render json: @want, status: :created
-    # else
-    #   render json: @want.errors.full_messages, status: :unprocessable_entity
-    # end
+    @want = Want.new(user_id: params[:user_id].to_i, product_id: params[:id], max_price: params[:max_price], fulfilled: false)
+    if @want.save
+      render json: @want, status: :created
+    else
+      render json: @want.errors.full_messages, status: :unprocessable_entity
+    end
   end
 
   def edit
