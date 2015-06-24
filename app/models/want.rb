@@ -6,17 +6,16 @@ class Want < ActiveRecord::Base
   belongs_to :user
   has_many :products
 
-
-
-  # extend self
-
   def self.checking
     puts "Checking shopstyle from model!"
     wants = Want.all
     wants.each do |want|
-      client = HTTParty.get("http://api.shopstyle.com/api/v2/products/#{want.product_id}?pid=uid5001-30368749-95")
-      currentShopstylePrice = client["priceLabel"]
 
+      client = HTTParty.get("http://api.shopstyle.com/api/v2/products/#{want.product_id}?pid=uid5001-30368749-95")
+      p "current price"
+      p currentShopstylePrice = client["priceLabel"]
+      p "max_price"
+      p want.max_price
 
       if (currentShopstylePrice == "Sold Out")
       else
@@ -34,7 +33,7 @@ class Want < ActiveRecord::Base
       elsif (currentShopstylePrice.to_i <= want.max_price)
         want.fulfilled = true
         # Call the notification method here so that there is less logic in the notification method
-        notification
+        # notification
       # Do we want logic here for the price going back higher again?
       else (currentShopstylePrice.to_i > want.max_price)
         want.fulfilled = false
@@ -83,7 +82,9 @@ class Want < ActiveRecord::Base
           client.account.messages.create(
             :from => from,
             :to => user_phone,
-            :body => "Hey #{user.name}, the #{want.product_name} meets your ideal price!"
+            # :body => "Hey #{user.name}, the #{want.product_name} meets your ideal price!"
+            :body => "Hey, the #{want.product_name} meets your ideal price!"
+
           )
           puts "Sent message to #{user_phone}"
           want.notified = true
