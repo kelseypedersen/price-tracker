@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     else
       @user = User.new(name: params[:user][:oauth_name], facebook_id: params[:user][:oauth_id])
       if @user.save
-        # render json: { user: @user }, status: :created
+        render json: { user: @user }, status: :created
       else
         # render json: @user.errors.full_messages, status: :unprocessable_entity
       end
