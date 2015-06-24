@@ -173,6 +173,3 @@ DEPENDENCIES
   simplecov
   spring
   twilio-ruby
-
-BUNDLED WITH
-   1.10.2
