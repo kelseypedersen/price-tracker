@@ -16,12 +16,12 @@ class WantsController < ApplicationController
   def create
     p "*" * 100
     p params
-    @want = Want.new(user_id: params[:user_id], product_id: params[:id], max_price: params[:max_price], time_duration: params[:time_duration], fulfilled: false)
-    if @want.save
-      render json: @want, status: :created
-    else
-      render json: @want.errors.full_messages, status: :unprocessable_entity
-    end
+    # @want = Want.new(user_id: params[:user_id].to_i, product_id: params[:id], max_price: params[:max_price], fulfilled: false)
+    # if @want.save
+    #   render json: @want, status: :created
+    # else
+    #   render json: @want.errors.full_messages, status: :unprocessable_entity
+    # end
   end
 
   def edit
@@ -29,7 +29,7 @@ class WantsController < ApplicationController
   end
 
   def update
-    @want = Want.update(user_id: params[:user_id], product_id: params[:id], max_price: params[:max_price], time_duration: params[:time_duration], fulfilled: false)
+    @want = Want.update(user_id: params[:user_id], product_id: params[:id], max_price: params[:max_price], fulfilled: false)
   end
 
   def destroy
