@@ -16,6 +16,12 @@ gem 'httparty'
 
 gem 'apns'
 
+gem 'dotenv-rails'
+
+# gem 'rubygems'
+
+gem 'twilio-ruby'
+
 group :development, :test do
   gem 'spring'
   gem 'rspec-rails'

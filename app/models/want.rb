@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'twilio-ruby'
+
 class Want < ActiveRecord::Base
 
   belongs_to :user
@@ -36,6 +39,7 @@ class Want < ActiveRecord::Base
     end
   end
 
+
   # Checking the shopstyle API
 
   ### Loop through the list of wants
@@ -52,20 +56,38 @@ class Want < ActiveRecord::Base
   # then send push notification to the user
 
 
-  def notifications
-    wants = Want.all
-    wants.each do |want|
-      if (fulfilled == true) && (notified == false)
+  def self.notification
+    p "notifying....!"
+    # wants = Want.all
+    # wants.each do |want|
+      # if (fulfilled == true) && (notified == false)
+
+        account_sid = ENV["ACCOUNT_SID"]
+        auth_token = ENV["AUTH_TOKEN"]
+        client = Twilio::REST::Client.new account_sid, auth_token
+
+        from = "+16502855509" # Your Twilio number
+
+        friends = {
+        "+14157704113" => "Dani",
+        "+16507995844" => "Kelsey",
+        "+12164708391" => "Mary"
+        }
+        friends.each do |key, value|
+          client.account.messages.create(
+            :from => from,
+            :to => key,
+            :body => "Hey #{value}, Monkey party at 6PM. Bring Bananas (or if you're Mary, dont!)!"
+          )
+          puts "Sent message to #{value}"
+        # end
 
         # device_token = '123abc456def'
 
         # APNS.send_notification(device_token, :alert => 'Hello iPhone!', :badge => 1, :sound => 'default')
 
-
-        notified = true
+        # notified = true
       end
+    end
   end
-
-end
-
-end
+# end
