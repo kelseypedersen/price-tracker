@@ -58,36 +58,42 @@ class Want < ActiveRecord::Base
 
   def self.notification
     p "notifying....!"
-    # wants = Want.all
-    # wants.each do |want|
-      # if (fulfilled == true) && (notified == false)
+    wants = Want.all
+    wants.each do |want|
+      # if (want.fulfilled == true) && (want.notified == false)
 
-        account_sid = ENV["ACCOUNT_SID"]
-        auth_token = ENV["AUTH_TOKEN"]
-        client = Twilio::REST::Client.new account_sid, auth_token
+      # if is sulfilled and not notified
+      # next if !want.fulfilled || want.notified
 
-        from = "+16502855509" # Your Twilio number
+      # next unless want.fulfilled && !want.notified
 
-        friends = {
-        "+14157704113" => "Dani",
-        "+16507995844" => "Kelsey",
-        "+12164708391" => "Mary"
-        }
-        friends.each do |key, value|
-          client.account.messages.create(
-            :from => from,
-            :to => key,
-            :body => "Hey #{value}, Monkey party at 6PM. Bring Bananas (or if you're Mary, dont!)!"
-          )
-          puts "Sent message to #{value}"
-        # end
+      account_sid = ENV["ACCOUNT_SID"]
+      auth_token = ENV["AUTH_TOKEN"]
+      client = Twilio::REST::Client.new account_sid, auth_token
 
-        # device_token = '123abc456def'
+      from = ENV['TWILIO_NUMBER'] # Your Twilio number
 
-        # APNS.send_notification(device_token, :alert => 'Hello iPhone!', :badge => 1, :sound => 'default')
+      friends = {
+        ENV['DANI_NUMBER']   => "Dani",
+        ENV['KELSEY_NUMBER'] => "Kelsey",
+        ENV['MARY_NUMBER']   => "Mary",
+      }
 
-        # notified = true
+      friends.each do |key, value|
+        client.account.messages.create(
+          :from => from,
+          :to => key,
+          :body => "Hey #{value}, the #{want.product_id} meets your ideal price! You guys are the best"
+        )
+        puts "Sent message to #{value}"
       end
+    end
+
+      # device_token = '123abc456def'
+
+      # APNS.send_notification(device_token, :alert => 'Hello iPhone!', :badge => 1, :sound => 'default')
+
+      # notified = true
     end
   end
 # end
