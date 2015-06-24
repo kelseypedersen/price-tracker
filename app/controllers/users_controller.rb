@@ -14,11 +14,11 @@ class UsersController < ApplicationController
     # email and password for user no longer needed
     @user = User.find_by(facebook_id: params[:user][:oauth_id])
     if @user
-      # Error handling needed. But YOLO.
+        render json: { user: @user }
     else
       @user = User.new(name: params[:user][:oauth_name], facebook_id: params[:user][:oauth_id])
       if @user.save
-        render json: { user: @user }, status: :created
+        render json: { user: @user }
       else
         # render json: @user.errors.full_messages, status: :unprocessable_entity
       end
