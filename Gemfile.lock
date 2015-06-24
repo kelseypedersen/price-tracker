@@ -153,6 +153,3 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   spring
-
-BUNDLED WITH
-   1.10.2
