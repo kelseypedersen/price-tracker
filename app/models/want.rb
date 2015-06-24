@@ -73,11 +73,11 @@ class Want < ActiveRecord::Base
 
       from = ENV['TWILIO_NUMBER'] # Your Twilio number
 
-      friends = {
-        ENV['DANI_NUMBER']   => "Dani",
-        ENV['KELSEY_NUMBER'] => "Kelsey",
-        ENV['MARY_NUMBER']   => "Mary",
-      }
+      # friends = {
+      #   ENV['DANI_NUMBER']   => "Dani",
+      #   ENV['KELSEY_NUMBER'] => "Kelsey",
+      #   ENV['MARY_NUMBER']   => "Mary",
+      # }
 
       friends.each do |key, value|
         client.account.messages.create(
