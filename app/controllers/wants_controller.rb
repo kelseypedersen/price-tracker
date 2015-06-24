@@ -14,6 +14,8 @@ class WantsController < ApplicationController
   end
 
   def create
+    p "*" * 100
+    p params
     @want = Want.new(user_id: params[:user_id], product_id: params[:id], max_price: params[:max_price], time_duration: params[:time_duration], fulfilled: false)
     if @want.save
       render json: @want, status: :created
