@@ -8,7 +8,7 @@ products = [480234994, 481587986]
 end
 
 2.times do
-  want = Want.create(user_id: 2, product_id: 481587986, max_price: 1000, expiration: Faker::Date.forward(23))
+  want = Want.create(user_id: 2, product_id: 481587986, max_price: 10000, expiration: Faker::Date.forward(23))
 end
 
 2.times do
