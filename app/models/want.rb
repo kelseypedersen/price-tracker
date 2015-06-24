@@ -51,27 +51,32 @@ class Want < ActiveRecord::Base
   def self.notification
     puts "Sending notification"
 
-    userId = want.user_id
-    user = User.find(userId)
-    user_phone = user.phone_number
+    wants = Want.all
+    wants.each do |want|
+    p want.notified
 
-    if want.notified == false
-      # next if !want.fulfilled || want.notified
-      # next unless want.fulfilled && !want.notified
-      account_sid = ENV["ACCOUNT_SID"]
-      auth_token = ENV["AUTH_TOKEN"]
-      client = Twilio::REST::Client.new account_sid, auth_token
+      # userId = want.user_id
+      # user = User.find(userId)
+      # user_phone = user.phone_number
+      user_phone = "+16507995844"
 
-      from = ENV['TWILIO_NUMBER'] # Your Twilio number
+      if want.notified == false
+        # next if !want.fulfilled || want.notified
+        # next unless want.fulfilled && !want.notified
+        account_sid = ENV["ACCOUNT_SID"]
+        auth_token = ENV["AUTH_TOKEN"]
+        client = Twilio::REST::Client.new account_sid, auth_token
 
-        client.account.messages.create(
-          :from => from,
-          :to => user_phone,
-          :body => "Hey #{user.name}, the #{want.product_name} meets your ideal price!"
-        )
-        puts "Sent message to #{user_phone}"
-        want.notified = true
+        from = ENV['TWILIO_NUMBER'] # Your Twilio number
+
+          client.account.messages.create(
+            :from => from,
+            :to => user_phone,
+            :body => "Hey #{user.name}, the #{want.product_name} meets your ideal price!"
+          )
+          puts "Sent message to #{user_phone}"
+          want.notified = true
       end
     end
   end
-# end
+end
