@@ -14,12 +14,24 @@ gem 'shopsense-ruby'
 
 gem 'httparty'
 
+gem 'apns'
+
+gem 'dotenv-rails'
+
+# gem 'rubygems'
+
+gem 'twilio-ruby'
+
 group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 
