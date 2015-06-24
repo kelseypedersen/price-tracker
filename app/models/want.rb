@@ -6,6 +6,8 @@ class Want < ActiveRecord::Base
   belongs_to :user
   has_many :products
 
+  # extend self
+
   def self.checking
     puts "Checking shopstyle from model!"
 
@@ -18,24 +20,14 @@ class Want < ActiveRecord::Base
       # Find the current Shopstyle API price for the product
       currentShopstylePrice = client["priceLabel"]
       if (currentShopstylePrice == "Sold Out")
-        p "this item is sold out"
-      elsif (currentShopstylePrice.to_i < want.max_price)
-        p "BUY BUY BUY"
+      elsif (currentShopstylePrice.to_i <= want.max_price)
         want.fulfilled = true
-        p "Fulfilled by checking method"
+        # Call the notification method here so that there is less logic in the notification method
+        notification
       # Do we want logic here for the price going back higher again?
-      elsif (currentShopstylePrice.to_i > want.max_price)
-        p "Switched from BUY to do NOT buy!"
+      else (currentShopstylePrice.to_i > want.max_price)
         want.fulfilled = false
-        p "No longer fulfilled"
-      else
-        p "were working on it"
       end
-
-      p "Product id: " + want.product_id.to_s
-      p "Max price: " + want.max_price.to_s
-      p "Fulfilled: " + want.fulfilled.to_s
-      p "*" * 100
     end
   end
 
@@ -57,43 +49,29 @@ class Want < ActiveRecord::Base
 
 
   def self.notification
-    p "notifying....!"
-    wants = Want.all
-    wants.each do |want|
-      # if (want.fulfilled == true) && (want.notified == false)
+    puts "Sending notification"
 
-      # if is sulfilled and not notified
+    userId = want.user_id
+    user = User.find(userId)
+    user_phone = user.phone_number
+
+    if want.notified == false
       # next if !want.fulfilled || want.notified
-
       # next unless want.fulfilled && !want.notified
-
       account_sid = ENV["ACCOUNT_SID"]
       auth_token = ENV["AUTH_TOKEN"]
       client = Twilio::REST::Client.new account_sid, auth_token
 
       from = ENV['TWILIO_NUMBER'] # Your Twilio number
 
-      # friends = {
-      #   ENV['DANI_NUMBER']   => "Dani",
-      #   ENV['KELSEY_NUMBER'] => "Kelsey",
-      #   ENV['MARY_NUMBER']   => "Mary",
-      # }
-
-      friends.each do |key, value|
         client.account.messages.create(
           :from => from,
-          :to => key,
-          :body => "Hey #{value}, the #{want.product_id} meets your ideal price! You guys are the best"
+          :to => user_phone,
+          :body => "Hey #{user.name}, the #{want.product_name} meets your ideal price!"
         )
-        puts "Sent message to #{value}"
+        puts "Sent message to #{user_phone}"
+        want.notified = true
       end
-    end
-
-      # device_token = '123abc456def'
-
-      # APNS.send_notification(device_token, :alert => 'Hello iPhone!', :badge => 1, :sound => 'default')
-
-      # notified = true
     end
   end
 # end
