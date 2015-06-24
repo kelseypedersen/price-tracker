@@ -42,6 +42,10 @@ GEM
     database_cleaner (1.4.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     erubis (2.7.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -57,6 +61,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
     json (1.8.3)
+    jwt (1.4.1)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -64,6 +69,7 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
+    multi_json (1.11.1)
     multi_xml (0.5.5)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -139,6 +145,10 @@ GEM
       sprockets (>= 2.8, < 4.0)
     thor (0.19.1)
     thread_safe (0.3.5)
+    twilio-ruby (4.1.0)
+      builder (>= 2.1.2)
+      jwt (~> 1.0)
+      multi_json (>= 1.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     yajl-ruby (1.2.1)
@@ -149,6 +159,7 @@ PLATFORMS
 DEPENDENCIES
   apns
   database_cleaner
+  dotenv-rails
   factory_girl_rails
   faker
   httparty
@@ -161,3 +172,4 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   spring
+  twilio-ruby
