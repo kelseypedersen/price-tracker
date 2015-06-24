@@ -14,7 +14,7 @@ class WantsController < ApplicationController
   end
 
   def create
-    @want = Want.new(user_id: params[:user_id], product_id: params[:id], max_price: params[:max_price], time_duration: params[:time_duration], fulfilled: false)
+    @want = Want.new(user_id: params[:user_id].to_i, product_id: params[:prodId].to_i, max_price: params[:wishPrice].to_i, prod_name: params[:prodName], fulfilled: false)
     if @want.save
       render json: @want, status: :created
     else
@@ -27,7 +27,7 @@ class WantsController < ApplicationController
   end
 
   def update
-    @want = Want.update(user_id: params[:user_id], product_id: params[:id], max_price: params[:max_price], time_duration: params[:time_duration], fulfilled: false)
+    @want = Want.update(user_id: params[:user_id], product_id: params[:id], max_price: params[:max_price], fulfilled: false)
   end
 
   def destroy

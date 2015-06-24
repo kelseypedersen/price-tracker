@@ -7,6 +7,7 @@ class CreateWants < ActiveRecord::Migration
       t.integer :max_price
       t.date :expiration
       t.boolean :fulfilled
+      t.string :prod_name
 
       t.timestamps null: false
     end
