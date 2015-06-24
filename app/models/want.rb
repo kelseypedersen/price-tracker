@@ -6,19 +6,30 @@ class Want < ActiveRecord::Base
   belongs_to :user
   has_many :products
 
+
+
   # extend self
 
   def self.checking
     puts "Checking shopstyle from model!"
-
-    # Loop through the list of wants
     wants = Want.all
     wants.each do |want|
-       # For each want, call the api for the specific product - HTTParty.get(API URL)
       client = HTTParty.get("http://api.shopstyle.com/api/v2/products/#{want.product_id}?pid=uid5001-30368749-95")
-      # create variable to store current price on shopstyle
-      # Find the current Shopstyle API price for the product
       currentShopstylePrice = client["priceLabel"]
+
+
+      if (currentShopstylePrice == "Sold Out")
+      else
+        currentShopstylePrice = currentShopstylePrice.split(//)
+        currentShopstylePrice.each do |item|
+          if item == "$" || item == ","
+            currentShopstylePrice.delete(item)
+          end
+        end
+        currentShopstylePrice = currentShopstylePrice.join("")
+      end
+
+
       if (currentShopstylePrice == "Sold Out")
       elsif (currentShopstylePrice.to_i <= want.max_price)
         want.fulfilled = true
