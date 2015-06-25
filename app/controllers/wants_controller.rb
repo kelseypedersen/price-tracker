@@ -3,8 +3,7 @@ class WantsController < ApplicationController
 
   def index
     @wants = Want.where(user_id: params[:user_id].to_i)
-    p "*" * 100
-    p @wants
+
     render json: @wants
   end
 
