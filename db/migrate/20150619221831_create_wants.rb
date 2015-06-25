@@ -8,6 +8,7 @@ class CreateWants < ActiveRecord::Migration
       t.date :expiration
       t.boolean :fulfilled
       t.string :prod_name
+      t.integer :url
 
       t.timestamps null: false
     end
