@@ -32,10 +32,9 @@ ActiveRecord::Schema.define(version: 20150624033357) do
     t.string   "name"
     t.string   "password"
     t.string   "email"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "facebook_id",  limit: 8
-    t.string   "phone_number"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "facebook_id", limit: 8
   end
 
   create_table "wants", force: :cascade do |t|
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150624033357) do
     t.date     "expiration"
     t.boolean  "fulfilled",    default: false
     t.string   "prod_name"
+    t.string   "url"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.boolean  "notified",     default: false

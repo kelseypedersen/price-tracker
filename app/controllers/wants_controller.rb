@@ -1,7 +1,10 @@
 class WantsController < ApplicationController
-  before_action :wants_find, only: [:index, :show, :edit, :destroy, :update]
+  # before_action :wants_find, only: [:index, :show, :edit, :destroy, :update]
 
   def index
+    @wants = Want.where(user_id: params[:user_id].to_i)
+    p "*" * 100
+    p @wants
     render json: @wants
   end
 
@@ -14,8 +17,13 @@ class WantsController < ApplicationController
   end
 
   def create
-    @want = Want.new(user_id: params[:user_id].to_i, product_id: params[:prodId].to_i, max_price: params[:wishPrice].to_i, prod_name: params[:prodName], fulfilled: false)
+    p "*" * 100
+    p params[:prodUrl]
+    @want = Want.new(user_id: params[:user_id].to_i, product_id: params[:prodId].to_i, max_price: params[:wishPrice].to_i, prod_name: params[:prodName], url: params[:prodUrl], fulfilled: false)
+    p @want
     if @want.save
+      p "*" * 100
+      p @want
       render json: @want, status: :created
     else
       render json: @want.errors.full_messages, status: :unprocessable_entity
@@ -36,10 +44,10 @@ class WantsController < ApplicationController
 
   private
 
-  def wants_find
-    @user = User.find(params[:user_id])
-    @wants = Want.where(user_id: @user)
-    @want = @wants.find(params[:id])
-  end
+  # def wants_find
+  #   @user = User.find(params[:user_id])
+  #   @wants = Want.where(user_id: @user.id)
+  #   @want = @wants.find(params[:id])
+  # end
 
 end
