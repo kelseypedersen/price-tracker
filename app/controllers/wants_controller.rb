@@ -17,12 +17,8 @@ class WantsController < ApplicationController
   end
 
   def create
-    p "*" * 100
-    p params[:prodUrl]
     @want = Want.new(user_id: params[:user_id].to_i, product_id: params[:prodId].to_i, max_price: params[:wishPrice].to_i, prod_name: params[:prodName], url: params[:prodUrl], fulfilled: false)
-    p @want
     if @want.save
-      p "*" * 100
       p @want
       render json: @want, status: :created
     else
