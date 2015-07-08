@@ -1,5 +1,6 @@
 # Price Tracker
 DBC Final Project June 2015
+See decoupled frontend here: https://github.com/kpedersen00/price-tracker-client
 
 Team Members
 - Jacob Moyle
