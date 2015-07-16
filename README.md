@@ -1,8 +1,8 @@
 # Price Tracker
-DBC Final Project June 2015
 
 **Team Members: Jacob Moyle, Kelsey Pedersen, Dani Rigsby, Mary Wallace**
 
+## Summary
 Price Tracker makes online shopping easy and fast. 
 
 To build Price Tracker we used Ruby on Rails API for the back-end, PostgreSQL for the database, Heroku Scheduler for the background jobs, Firebase for Facebook OAuth, Shopstyle for the retail information, Twilio to send notifications and PhoneGap to create a mobile application. 
