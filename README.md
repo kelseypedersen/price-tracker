@@ -1,6 +1,7 @@
 # Price Tracker
 
 DBC Final Project June 2015
+
 Team Members: Jacob Moyle, Kelsey Pedersen, Dani Rigsby, Mary Wallace
 
 ## Summary
