@@ -1,6 +1,7 @@
 # Price Tracker
 DBC Final Project June 2015
 
+```
 Price Tracker makes online shopping easy and fast. 
 
 To build Price Tracker we used Ruby on Rails API for the back-end, PostgreSQL for the database, Heroku Scheduler for the background jobs, Firebase for Facebook OAuth, Shopstyle for the retail information, Twilio to send notifications and PhoneGap to create a mobile application. 
@@ -10,6 +11,7 @@ Users sign up through their Facebook account. We use the Shopstyle API to pull i
 Once the Shopstyle price drops below the max willingness to pay price, the user receives a text notification via Twilio. The user then can buy the product directly through the retailer's site.
 
 Our app eliminates the need to constantly price compare across multiple sites and time periods for the user to find an item for their ideal price -- by adding an item to their wants list, Price Tracker does the rest of the work.
+```
 
 See decoupled frontend here: https://github.com/kpedersen00/price-tracker-client
 
