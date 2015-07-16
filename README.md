@@ -14,7 +14,7 @@ Once the Shopstyle price drops below the max willingness to pay price, the user 
 Our app eliminates the need to constantly price compare across multiple sites and time periods for the user to find an item for their ideal price -- by adding an item to their wants list, Price Tracker does the rest of the work.
 
 ```
-See decoupled frontend here: https://github.com/kpedersen00/price-tracker-client
+:**See decoupled frontend here: https://github.com/kpedersen00/price-tracker-client**:
 ```
 
 
