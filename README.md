@@ -1,6 +1,6 @@
 # Price Tracker
 
-**Team Members: Jacob Moyle, Kelsey Pedersen, Dani Rigsby, Mary Wallace**
+Team Members: Jacob Moyle, Kelsey Pedersen, Dani Rigsby, Mary Wallace
 
 ## Summary
 Price Tracker makes online shopping easy and fast. 
