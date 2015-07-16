@@ -1,7 +1,7 @@
 # Price Tracker
 DBC Final Project June 2015
 
-Team Members: Jacob Moyle, Kelsey Pedersen, Dani Rigsby, Mary Wallace
+**Team Members: Jacob Moyle, Kelsey Pedersen, Dani Rigsby, Mary Wallace**
 
 Price Tracker makes online shopping easy and fast. 
 
@@ -14,9 +14,8 @@ Once the Shopstyle price drops below the max willingness to pay price, the user 
 Our app eliminates the need to constantly price compare across multiple sites and time periods for the user to find an item for their ideal price -- by adding an item to their wants list, Price Tracker does the rest of the work.
 
 ```
-**See decoupled frontend here: https://github.com/kpedersen00/price-tracker-client**
+See decoupled frontend here: https://github.com/kpedersen00/price-tracker-client
 ```
-
 
 ## Day 1
 Today was the first day of our final project. We worked on planning our vision, values, measures of success, working time agreement and the definition of done in the morning. In the afternoon, we discussed our database schema, wireframing for the MVP, technology to be used for the project.
